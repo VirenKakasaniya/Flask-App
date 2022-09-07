@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Tivo is a HTML landing page template built with Bootstrap to help you crate engaging presentations for SaaS apps and convert visitors into users.">
+    <meta name="author" content="Inovatik">
+
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
+	<meta property="og:site_name" content="" /> <!-- website name -->
+	<meta property="og:site" content="" /> <!-- website link -->
+	<meta property="og:title" content=""/> <!-- title shown in the actual shared post -->
+	<meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
+	<meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
+	<meta property="og:url" content="" /> <!-- where do you want your post to link to -->
+	<meta property="og:type" content="article" />
+
+    <!-- Website Title -->
+    <title>AQI - Edith Healthcare</title>
+
+    <!-- Styles -->
+
+    <link href="../static/css/style2.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <link href="../static/css/fontawesome-all.css" rel="stylesheet">
+    <link href="../static/css/swiper.css" rel="stylesheet">
+	<link href="../static/css/magnific-popup.css" rel="stylesheet">
+    <link href="../static/css/styles.css" rel="stylesheet">
+
+	<!-- Favicon  -->
+    <link rel="icon" href="../static/images/favicon.png">
+
+
+
+</head>
+<body data-spy="scroll" data-target=".fixed-top">
+
+    <!-- Preloader -->
+	<div class="spinner-wrapper">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+    <!-- end of preloader -->
+
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top top-nav-collapse">
+            <div class="container">
+
+                <!-- Text Logo - Use this if you don't have a graphic logo -->
+                <!-- <a class="navbar-brand logo-text page-scroll" href="i/">Edith Healthcare</a> -->
+
+                <!-- Image Logo -->
+                <a class="navbar-brand logo-image" href="/"><img src="../static/images/logo-name.png" alt="alternative" width="100%"></a>
+
+
+                    <span class="nav-item" style="padding-top: 0.5rem;">
+                        <a class="btn-outline-sm" href="/login">LOG OUT</a>
+                    </span>
+
+            </div> <!-- end of container -->
+        </nav> <!-- end of navbar -->
+        <!-- end of navigation -->
+    <!-- Navigation -->
+
+
+
+    <!-- Webpannel content -->
+    <div class="ex-basic-2" style="background-color:rgba(88, 115, 254, 0.04);padding-bottom:10px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="text-container">
+                    <!--    <h3>Isolation unit number: {{serial_number}} </h3>-->
+
+
+
+
+                            <div class="row" style="padding-right:2px;">
+                              {%for sensor in sensors %}
+
+                              <div class="col-xs-1 col-sm-5 col-md-4 col-lg-3">
+                                  <div class="card">
+                                      <div class="stat-widget-one">
+                                          <div class="stat-icon dib" style="padding-top:3%;padding-bottom:3%;"><img src="../static/images/sensors/{{sensor['sensorname']}}.png" height="20">
+                                          </div>
+                                          <div class="stat-content dib">
+                                              <div class="stat-text">{{sensor['sensorname']}}</div>
+                                              <div class="stat-digit">{{sensor['sensorvalue']}} <p style="display:inline;"> {{sensor['unit']}}</p></div>
+                                          </div>
+                                      </div>
+                                      {% if sensor['percentage'] %}
+                                      <div class="progress progress-sm" style="margin-top:5%;border-radius:0;">
+                                        <div class="progress-bar bg-blue" role="progressbar" style="width:{{sensor['percentage']}}%" aria-valuenow="{{sensor['percentage']}}" aria-valuemin="0" aria-valuemax="100">
+
+                                        </div>
+                                      </div>
+                                      {% else %}
+                                      <div class="progress progress-sm" style="margin-top:5%;border-radius:0;background-color:white;background:white;">
+                                        <div class="progress-bar bg-blue" role="progressbar" style="width:100%; background:white;color:white;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+
+                                        </div>
+                                      </div>
+                                      {% endif %}
+                                  </div>
+                              </div>
+                              {% endfor %}
+                            <!--</div>
+
+
+                            <div class="row" style="padding-right:2px;">
+                              {%for sensor in sensors[5:10] %}
+                              <div class="col-5 col-md-2">
+                                  <div class="card">
+                                      <div class="stat-widget-one">
+                                          <div class="stat-icon dib" style="padding-top:3%;padding-bottom:3%;"><img src="../static/images/sensors/{{sensor['sensorname']}}.png" height="20">
+                                          </div>
+                                          <div class="stat-content dib">
+                                              <div class="stat-text">{{sensor['sensorname']}}</div>
+                                              <div class="stat-digit">{{sensor['sensorvalue']}} <p style="display:inline;"> {{sensor['unit']}}</p></div>
+                                          </div>
+                                      </div>
+                                      {% if sensor['percentage'] %}
+                                      <div class="progress progress-sm" style="margin-top:5%;border-radius:0;">
+                                        <div class="progress-bar bg-blue" role="progressbar" style="width:{{sensor['percentage']}}%" aria-valuenow="{{sensor['percentage']}}" aria-valuemin="0" aria-valuemax="100">
+
+                                        </div>
+                                      </div>
+                                      {% else %}
+                                      <div class="progress progress-sm" style="margin-top:5%;border-radius:0;background-color:white;background:white;">
+                                        <div class="progress-bar bg-blue" role="progressbar" style="width:100%; background:white;color:white;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+
+                                        </div>
+                                      </div>
+                                      {% endif %}
+                                  </div>
+                              </div>
+                              {% endfor %}
+                            </div>
+                            <div class="row" style="padding-right:2px;">
+                              {%for sensor in sensors[10:15] %}
+                              <div class="col-5 col-md-2">
+                                  <div class="card">
+                                      <div class="stat-widget-one">
+                                          <div class="stat-icon dib" style="padding-top:3%;padding-bottom:3%;"><img src="../static/images/sensors/{{sensor['sensorname']}}.png" height="20">
+                                          </div>
+                                          <div class="stat-content dib">
+                                              <div class="stat-text">{{sensor['sensorname']}}</div>
+                                              <div class="stat-digit">{{sensor['sensorvalue']}} <p style="display:inline;"> {{sensor['unit']}}</p></div>
+                                          </div>
+                                      </div>
+                                      {% if sensor['percentage'] %}
+                                      <div class="progress progress-sm" style="margin-top:5%;border-radius:0;">
+                                        <div class="progress-bar bg-blue" role="progressbar" style="width:{{sensor['percentage']}}%" aria-valuenow="{{sensor['percentage']}}" aria-valuemin="0" aria-valuemax="100">
+
+                                        </div>
+                                      </div>
+                                      {% else %}
+                                      <div class="progress progress-sm" style="margin-top:5%;border-radius:0;background-color:white;background:white;">
+                                        <div class="progress-bar bg-blue" role="progressbar" style="width:100%; background:white;color:white;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+
+                                        </div>
+                                      </div>
+                                      {% endif %}
+                                  </div>
+                              </div>
+                              {% endfor %}
+                            </div>-->
+
+
+
+
+
+
+
+                            </div> <!-- end of col -->
+                        </div> <!-- end of row -->
+                    </div> <!-- end of text-container-->
+
+                </div> <!-- end of col-->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of ex-basic-2 -->
+    <!-- end of privacy content -->
+
+
+    <!-- Footer -->
+
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="footer-col first">
+                        <h4>About Edith Healthcare</h4>
+                        <p class="p-small">We're passionate about protecting you from harmful pathogens with our isolation units.</p>
+                    </div>
+                </div> <!-- end of col -->
+                <div class="col-md-4">
+                    <div class="footer-col middle">
+                        <h4>Important Links</h4>
+                        <ul class="list-unstyled li-space-lg p-small">
+                            <li class="media">
+                                <img src="../static/images/links/website-min.png" height="20">
+                                <div class="media-body">Our main website: <a class="white" href="https://edithhealthcare.in/">edithhealthcare.in/</a></div>
+                            </li>
+                            <li class="media">
+                                <img src="../static/images/links/hours-min.png" height="20">
+                                <div class="media-body">Monday - Friday: 8AM–8PM ; Saturday - Sunday: 8AM–6PM ; Emergency Service: 24/7</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div> <!-- end of col -->
+                <div class="col-md-4">
+                    <div class="footer-col last">
+                        <h4>Contact</h4>
+                        <ul class="list-unstyled li-space-lg p-small">
+                            <li class="media">
+                              <img src="../static/images/links/whatsapp-min.png" height="20">
+
+                                <div class="media-body"><a class="white" target="_blank" href="https://api.whatsapp.com/send/?phone=918849747995&text&app_absent=0">Message us on Whatsapp</a></div>
+
+                            </li>
+                            <li class="media">
+                                <img src="../static/images/links/mail-min.png" height="20">
+                                <div class="media-body"><a class="white" target="_blank" href="mailto:edithhealthcare@gmail.com">edithhealthcare@gmail.com</a>
+                            </li>
+                            <li class="media">
+                                <img src="../static/images/links/instagram-min.png" height="20">
+                                <div class="media-body">
+
+                                  <a class="white" target="_blank" href="https://www.instagram.com/edith_healthcare/">Instagram</a></div>
+                            </li>
+
+                            <li class="media">
+                              <img src="../static/images/links/facebook-min.png" height="20">
+                                <div class="media-body"><a class="white" target="_blank" href="https://www.facebook.com/EdithHealthCare">Facebook</a>
+
+                            </li>
+                            <li class="media">
+                              <img src="../static/images/links/linkedin-min.png" height="20">
+                                <div class="media-body">
+                                <a class="white" target="_blank" href="https://www.linkedin.com/company/edith-healthcare/">Linkedin</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of footer -->
+    <!-- end of footer -->
+
+
+    <!-- Copyright -->
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="p-small">Copyright © 2022 - Edith Healthcare</p>
+                </div> <!-- end of col -->
+            </div> <!-- enf of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of copyright -->
+    <!-- end of copyright -->
+
+
+    <!-- Scripts -->
+    <script src="../static/js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="../static/js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
+    <script src="../static/js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+    <script src="../static/js/scripts.js"></script> <!-- Custom scripts -->
+</body>
+</html>
